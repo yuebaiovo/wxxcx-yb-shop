@@ -1,0 +1,59 @@
+/* component/product-hot/product-hot.wxss */
+
+.product-hot{
+   position: relative;
+}
+
+.product-hot .img{
+  width: 235rpx;
+  height: 235rpx;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 8rpx;
+}
+
+.product-hot .mt{
+  z-index: 2;
+  padding: 10rpx 15rpx 30rpx 15rpx;
+  width: 205rpx;
+}
+
+.product-hot .mt .brand{
+  display: block;
+  font-size: 24rpx;
+  color: #555;
+  font-weight: bold;
+  /* bold = 900 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 多余文字用...隐藏
+  overflow:clip是不隐藏
+  */
+  white-space: nowrap;
+  /* 文本不进行折行 */
+}
+
+.product-hot .mt .description{
+  display: block;
+  font-size: 20rpx;
+  color: #7f7f7f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 5rpx;
+}
+
+.product-hot .mt .price{
+  display: block;
+  font-size: 24rpx;
+  color: #d44d44;
+  font-weight: 700;
+  margin-top: 5rpx;
+}
+
+/* 促销/限时 */
+.product-hot .tag{
+  font-weight: 700;
+  position: absolute;
+  top: 5rpx;
+  left: 15rpx;
+}
