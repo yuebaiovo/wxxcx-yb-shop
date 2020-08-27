@@ -1,15 +1,15 @@
 /* pages/catalog/catalog.wxss */
 
-page{
+page {
   background: #fff !important;
 }
 
-.catalog{
+.catalog {
   display: flex;
   height: 100%;
 }
 
-.catalog .nav{
+.catalog .nav {
   width: 162rpx;
   margin-top: 12rpx;
 }
@@ -21,7 +21,7 @@ page{
   align-items: center;
 }
 
-.catalog .nav .item{
+.catalog .nav .item {
   text-align: center;
   line-height: 50rpx;
   width: 162rpx;
@@ -30,7 +30,7 @@ page{
   border-left: 6rpx solid #fff;
 }
 
-.catalog .nav .item.active{
+.catalog .nav .item.active {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,17 +39,22 @@ page{
   border-left: 6rpx solid #ab2b2b;
 }
 
-.catalog .category{
+.catalog .category {
   border-left: 0.8px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 30rpx 0 30rpx;
 }
 
-.banner{
+.banner {
   display: block;
   width: 100%;
   margin-bottom: 20rpx;
 }
 
-.banner .image{
+.banner .image {
   height: 200rpx;
   width: 100%;
 }
@@ -64,9 +69,9 @@ page{
   font-size: 26rpx;
 }
 
-.category .item-wrap{
+.category .item-wrap {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
   margin-bottom: 20rpx;
 }
 
@@ -77,21 +82,21 @@ page{
   margin-right: 47rpx;
 }
 
-.category .item.last{
+.category .item.last {
   margin-right: 0;
 }
 
-.category .item .icon{
+.category .item .icon {
   height: 144rpx;
   width: 144rpx;
 }
 
-.category .item .txt{
+.category .item .txt {
   display: block;
   text-align: center;
   font-size: 24rpx;
   color: #666;
   height: 72rpx;
   width: 144rpx;
-  overflow: hidden;
+  overflow:hidden;
 }

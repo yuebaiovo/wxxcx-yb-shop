@@ -5,7 +5,18 @@
     "pages/cart/cart",
     "pages/ucenter/index/index",
     "component/product-hot/product-hot",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/category/category",
+    "pages/product/product",
+    "pages/auth/auth",
+    "pages/auth/tologin/tologin",
+    "pages/auth/pass-login/pass-login",
+    "pages/auth/mobile-login/mobile-login",
+    "pages/checkout/checkout",
+    "pages/comment/comment",
+    "pages/pay-result/pay-result",
+    "pages/promotion/promotion",
+    "component/red/red"
   ],
   "window": {
     "navigationBarBackgroundColor": "#1d1d1d",

@@ -1,0 +1,47 @@
+<!--pages/product/product.wxml-->
+<import src="../../lib/wxParse/wxParse.wxml" />
+<wxs module="common" src="../../utils/common.wxs"></wxs>
+
+<swiper class="gallery" indicator-dots="true" indicator-color="#e0e0e0" indicator-active-color="#fff" autoplay="true" interval="3000" duration="1000">
+  <swiper-item wx:for="{{product.gallery}}" wx:key="{{index}}">
+    <image class="image" src="{{item.picUrl}}" background-size="cover"></image>
+  </swiper-item>
+</swiper>
+
+<view class="info-wrap">
+  <view class="info">
+    <view class="left">
+      <view class="title wux-ellipsis--12">{{product.title}}</view>
+      <view class="desc wux-ellipsis--12">{{product.description}}</view>
+      <view class="price">￥{{common.toFix(product.price)}}
+        <text class="price-origin">￥{{common.toFix(product.originPrice)}}</text>
+      </view>
+      <view class="tags" wx:if="{{product.tags.length > 0}}">
+        <view wx:for="{{product.tags}}" wx:key="{{item.id}}" data-value="{{item}}" class="tag" hover-class="active" bindtap="clickTag">{{item.title}}
+          <van-icon class="arrow" color="#f48f18" name="arrow" size="13px" />
+        </view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="comment">
+        <view class="comment-rate">{{product.comment.goodCommentRate}}%</view>
+        <text class="txt">好评率</text>
+      </view>
+      <van-icon class="arrow-icon" color="rgb(170,170,170)" name="arrow" size="18px" />
+    </view>
+  </view>
+
+  <view class="vip-banner" bindtap="toVip">
+    <view class="left">
+      <image class="image" src="/assets/vip.png"></image>
+      <text>超级会员价￥0.01</text>
+    </view>
+
+    <view class="right">
+      <text>立即开通</text>
+      <van-icon class="arrow-icon" name="arrow" size="13px" />
+    </view>
+  </view>
+
+  
+</view>

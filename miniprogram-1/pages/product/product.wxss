@@ -1,0 +1,140 @@
+/* pages/product/product.wxss */
+@import "../../lib/wxParse/wxParse.wxss";
+
+.gallery {
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.gallery .image {
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.info-wrap {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-wrap .info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* word-wrap: break-word;word-wrap 属性允许长单词或 URL 地址换行到下一行。 */
+.info-wrap .info .left {
+  width: 73vw;
+  word-wrap: break-word;
+}
+
+.info-wrap .info .desc {
+  margin-bottom: 10rpx;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  color: #999;
+}
+
+.info-wrap .info .price {
+  color: #b4282d;
+  font-size: 45rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.info-wrap .info .price-origin {
+  color: #999;
+  font-size: 28rpx;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+
+.info-wrap .info .right {
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17vw;
+}
+
+.right .comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right .comment-rate {
+  color: #b4282d;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+
+.right .txt {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.right .arrow-icon {
+  margin-top: 10rpx;
+}
+
+.tags {
+  display: flex;
+}
+
+.tag {
+  display: flex;
+  padding: 0 10rpx;
+  border: 1rpx solid #f48f18;
+  margin-right: 10rpx;
+  font-size: 25rpx;
+  color: #f48f18;
+  border-radius: 4rpx;
+  height: 40rpx;
+  align-items: center;
+}
+
+.tag.active {
+  background: #ebebeb;
+}
+
+.tag .arrow {
+  margin-top: 8rpx;
+}
+
+.vip-banner {
+  display: flex;
+  height: 60rpx;
+  align-items: center;
+  justify-content: space-between;
+  color: #333;
+  background: #f0e7d3;
+  background-image: linear-gradient(-45deg, #f1e9d7 0, #f9f5ef 100%, #f6f1e8 100%);
+  border-radius: 5rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-top: 30rpx;
+  padding: 0 20rpx;
+}
+
+.vip-banner .left {
+  display: flex;
+  align-items: center;
+}
+
+.vip-banner .right {
+  display: flex;
+  align-items: center;
+}
+
+.vip-banner .image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.attr-wrap {
+  
+}
