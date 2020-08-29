@@ -114,8 +114,8 @@
 </view>
 
 <!-- 精选评论 -->
-<view class="selevt-comment">
-  <comment data="{{product.comment.goodCommentRate}}"></comment>
+<view class="select-comment">
+  <comment data="{{product.comment.goodComment}}"></comment>
 </view>
 
 <!-- 推荐 -->

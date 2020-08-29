@@ -16,7 +16,8 @@
     "pages/comment/comment",
     "pages/pay-result/pay-result",
     "pages/promotion/promotion",
-    "component/red/red"
+    "component/red/red",
+    "pages/ucenter/vip/vip"
   ],
   "window": {
     "navigationBarBackgroundColor": "#1d1d1d",

@@ -83,9 +83,9 @@ Page({
         goodCommentRate: 100, // 好评率
         count: 3986, // 评论计数
         goodComment: {
-          nickname: "Exrick",
-          avatar: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJTqQ5hNKicCNEwW3cATfOTaXk6xMlNEfh1gm0kicPDtJrXwTf5YEqQXYea3m5vsuPyJUXc3U0OicXtA/132",
-          content: "很好，手机很有质感，值得购买。",
+          nickname: "YueBai",
+          avatar: "https://wx4.sinaimg.cn/mw690/006OUfVEly1gi0p7j90ghj305k05kq36.jpg",
+          content: "很nice，手机很便宜，买了一车了。",
           rate: 5,
           time: "2019.06.18",
           spec: "银色 64G",
