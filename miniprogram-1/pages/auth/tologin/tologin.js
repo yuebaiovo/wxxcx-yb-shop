@@ -1,4 +1,7 @@
 // pages/auth/tologin/tologin.js
+import Dialog from '../../../lib/vant-weapp/dialog/dialog';
+var app = getApp();
+
 Page({
 
   /**
@@ -62,5 +65,54 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getUserInfo: function () {
+    wx.getUserInfo({
+      success: function (res) {
+        let userInfo = res.userInfo
+        app.globalData.userInfo = res.userInfo;
+        app.globalData.userInfo.username = "微信用户";
+        wx.setStorageSync('userInfo', res.userInfo);
+        console.log(app.globalData.userInfo)
+      }
+    })
+  },
+  wxlogin: function (e) {
+    let that = this;
+    // 判断是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 获取用户信息
+          that.getUserInfo();
+          // 记录登录状态
+          wx.setStorageSync('isLogin', true);
+          Dialog.alert({
+            message: '模拟登录成功，此处还需调用微信登录开放接口'
+          }).then(() => {
+            // 返回上一级
+            wx.navigateBack({
+              delta: 1
+            })
+          });
+        }
+      }
+    })
+  },
+  mobilelogin: function (e) {
+    let that = this;
+    // 判断是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 获取用户信息
+          that.getUserInfo();
+          // 跳转至手机登录页
+          wx.navigateTo({
+            url: '/pages/auth/mobile-login/mobile-login',
+          })
+        }
+      }
+    })
   }
 })

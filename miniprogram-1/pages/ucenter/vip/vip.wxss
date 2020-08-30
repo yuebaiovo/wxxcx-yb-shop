@@ -1,0 +1,167 @@
+/* pages/ucenter/vip/vip.wxss */
+page {
+  background-color: #fff;
+}
+
+.privilegeWrap {
+  padding-top: 30rpx;
+  height: 740rpx;
+  background-image:url(https://wx1.sinaimg.cn/mw690/006OUfVEly1gi7trcjswzj30ku0liwfi.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  overflow: hidden;
+}
+
+.privilegeWrap .title {
+  height: 80rpx;
+  font-size: 38rpx;
+  font-family: PingFangSC-Semibold;
+  color: #fff;
+  text-shadow: 0 0.02667rem 0.05333rem #2a2315;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.privilegeWrap .title .img {
+ height: 75rpx;
+ width: 75rpx;
+ margin-bottom: 10rpx;
+}
+
+.m-privilegeList {
+  padding: 60rpx 75rpx;
+}
+
+.m-privilegeList .m-privilegeItem {
+  margin-bottom: 25rpx;
+  width: 200rpx;
+  display: inline-block;
+  font-family: PingFangSC-Regular;
+  text-align: center;
+}
+
+.m-privilegeItem .desc {
+  color: #fee3c7;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.m-privilegeItem .name {
+  font-size: 24rpx;
+  color: #7f7f7f;
+}
+
+.icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.wrap .icon1 {
+  font-size: 16px;
+  margin-right: 10rpx;
+  color: #777;
+  margin-top: 5rpx;
+}
+
+.wrap .icon2 {
+  font-size: 15px;
+  margin-right: 10rpx;
+  color: #777;
+  margin-top: 8rpx;
+}
+
+.wrap .m-calculatorLine {
+  font-size: 24rpx;
+  color: #333;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m-calculatorLine .money {
+  margin-left: 5rpx;
+  font-size: 26rpx;
+  color: #bea36e;
+  font-weight: 700;
+}
+
+.btnList {
+  padding: 0 32rpx;
+  margin-top: 30rpx;
+}
+
+.btnWraper {
+  position: relative;
+  width: 680rpx;
+  height: 80rpx;
+  /* 渐变 */
+  background-image: linear-gradient(44deg, #f4e9cc 0,#f4e9cc 0,#dbc18a 100%);
+  border-radius: 5rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.btnWraper .line1 {
+  font-size: 26rpx;
+  color: #4d3a12;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnWraper .line2 {
+  opacity: 0.8;
+  color: #4d3a12;
+  font-size: 24rpx;
+}
+
+.btnWraper.default {
+  background-image: none;
+  border: 1px solid #4d3a12;
+}
+
+.banner-wrap {
+  padding-left: 32rpx;
+  height: 150rpx;
+}
+
+.banner image {
+  width:686rpx;
+  height: 150rpx;
+}
+
+.imgs {
+  display:  flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20rpx;
+  padding-bottom: 50rpx;
+}
+
+.imgs .img1 {
+  width: 700rpx;
+  height: 150rpx;
+  margin-bottom: 10rpx;
+}
+
+.imgs .two {
+  display: flex;
+}
+
+.imgs .img2 {
+  width: 345rpx;
+  height:150rpx;
+  margin-bottom:10rpx;
+}
+
+.imgs .img3 {
+  width: 345rpx;
+  height: 150rpx;
+}

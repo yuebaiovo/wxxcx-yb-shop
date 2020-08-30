@@ -83,9 +83,9 @@ Page({
         goodCommentRate: 100, // 好评率
         count: 3986, // 评论计数
         goodComment: {
-          nickname: "Exrick",
-          avatar: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJTqQ5hNKicCNEwW3cATfOTaXk6xMlNEfh1gm0kicPDtJrXwTf5YEqQXYea3m5vsuPyJUXc3U0OicXtA/132",
-          content: "很好，手机很有质感，值得购买。",
+          nickname: "YueBai",
+          avatar: "https://wx4.sinaimg.cn/mw690/006OUfVEly1gi0p7j90ghj305k05kq36.jpg",
+          content: "很nice，手机很便宜，买了一车了。",
           rate: 5,
           time: "2019.06.18",
           spec: "银色 64G",
@@ -209,9 +209,11 @@ Page({
       picUrl: "", // 当前选择图片
       specText: "", // 所选规格属性
       specTextNoCount: "", // 所选规格属性 无数量
-      tree: [{
+      tree: [
+        {
           k: '颜色', // skuKeyName：规格类目名称
-          v: [{
+          v: [
+            {
               id: 1, // skuValueId：规格值 id
               name: '银色', // skuValueName：规格值名称
               picUrl: 'https://img11.360buyimg.com/n1/s450x450_jfs/t1/62813/33/2131/584186/5d079803E03084b0d/2b4970456b7bf49f.png', // 规格类目图片，只有第一个规格类目可以定义图片
@@ -329,14 +331,14 @@ Page({
     let date = new Date()
     let month = date.getMonth() + 1 //getMonth从0开始
     let day = date.getDate() + 1 //当前天+1
-    this.setDate({
+    this.setData({
       'deliveryAddress.day': month + '月' + day + '日'
     })
     // 读取购物车
-    let carList = wx.getStorageSync('carList')
-    if (carList) {
+    let cartList = wx.getStorageSync("cartList")
+    if (cartList) {
       this.setData({
-        cartList: carList
+        cartList: cartList
       })
     }
     // 加载sku后初始化selectedSku
@@ -466,7 +468,7 @@ Page({
   toProduct: function (e) {
     let id = e.currentTarget.dataset.value.id;
     wx.navigateTo({
-      url: '/pages/product/product?id=' + id,
+      url: '/pages/product/product?id=' + id
     })
   },
   clickTag: function (e) {
@@ -500,7 +502,7 @@ Page({
       return;
     }
     // 勾选或反选 设置属性
-    if (this.data.sku.tree[index].v[iindex].selected) {
+    if (!this.data.sku.tree[index].v[iindex].selected) {
       // 勾选 记录
       let s = 'sku.selectedSku.' + k.ks
       this.setData({
@@ -573,7 +575,7 @@ Page({
     // 先假设sku已选中，拼入已选中sku对象中
     // Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。 ---合并返回
     let matchedSku = Object.assign({}, selectedSku, {
-      [ks]: id
+      [ks]: vId
     })
 
     // 再判断剩余sku是否全部不可选，若不可选则当前sku不可选中
@@ -595,9 +597,9 @@ Page({
   },
   // 是否所有规格已选
   isAllSelected: function () {
-    let selectedSku = this.data.sku.selectSku
+    let selectedSku = this.data.sku.selectedSku
     let selected = Object.keys(selectedSku).filter(
-      skuKeyStr => selectedSku[skuKeyStr] != ''
+      skuKeyStr => selectedSku[skuKeyStr] != ""
     )
     return this.data.sku.tree.length == selected.length
   },
@@ -606,7 +608,7 @@ Page({
     if (!this.isAllSelected()) {
       return {}
     }
-    let selectedSku = this.data.sku.selectSku;
+    let selectedSku = this.data.sku.selectedSku;
     let list = this.data.sku.list;
     let skusToCheck = []
     this.data.sku.tree.forEach(v => {
@@ -641,7 +643,7 @@ Page({
       'sku.specTextNoCount': text
     })
     if (this.isAllSelected()) {
-      text = text + ' x' + this.data.sku.count
+      text = text + ' ×' + this.data.sku.count
     }
     this.setData({
       'sku.specText': text
@@ -693,7 +695,7 @@ Page({
     }
   },
   addToCart: function () {
-    if (!this.data.sku.count > skuComb.stockNum) {
+    if (!this.isAllSelected()) {
       // 提示
       this.toChooseTip()
     } else {

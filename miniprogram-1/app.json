@@ -8,7 +8,6 @@
     "pages/search/search",
     "pages/category/category",
     "pages/product/product",
-    "pages/auth/auth",
     "pages/auth/tologin/tologin",
     "pages/auth/pass-login/pass-login",
     "pages/auth/mobile-login/mobile-login",
@@ -16,7 +15,8 @@
     "pages/comment/comment",
     "pages/pay-result/pay-result",
     "pages/promotion/promotion",
-    "component/red/red"
+    "component/red/red",
+    "pages/ucenter/vip/vip"
   ],
   "window": {
     "navigationBarBackgroundColor": "#1d1d1d",

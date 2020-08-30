@@ -12,8 +12,8 @@
 <view class="info-wrap">
   <view class="info">
     <view class="left">
-      <view class="title wux-ellipsis--12">{{product.title}}</view>
-      <view class="desc wux-ellipsis--12">{{product.description}}</view>
+      <view class="title wux-ellipsis--l2">{{product.title}}</view>
+      <view class="desc wux-ellipsis--l2">{{product.description}}</view>
       <view class="price">￥{{common.toFix(product.price)}}
         <text class="price-origin">￥{{common.toFix(product.originPrice)}}</text>
       </view>
@@ -24,7 +24,7 @@
         </view>
       </view>
     </view>
-    <view class="right">
+    <view class="right" bindtap="toComment">
       <view class="comment">
         <view class="comment-rate">{{product.comment.goodCommentRate}}%</view>
         <text class="txt">好评率</text>
@@ -89,7 +89,7 @@
 
 <view class="attr-wrap" hover-class="active" bindtap="openService">
   <view class="service">
-    <view class="title">服务</view>
+    <text class="title">服务</text>
     <view class="right">
       <view class="info">
         <view class="item" wx:for="{{product.serviceList}}" wx:key="{{item.id}}">
@@ -114,8 +114,8 @@
 </view>
 
 <!-- 精选评论 -->
-<view class="selevt-comment">
-  <comment data="{{product.comment.goodCommentRate}}"></comment>
+<view class="select-comment">
+  <comment data="{{product.comment.goodComment}}"></comment>
 </view>
 
 <!-- 推荐 -->
@@ -176,7 +176,7 @@
 
 <!-- 优惠券选择 -->
 <van-popup show="{{couponShow}}" class="coupon-pop" position="bottom" bind:close="closeCoupon">
-  <view class="tilte">领券</view>
+  <view class="title">领券</view>
   <view class="coupon-wrap">
     <coupon data="{{item}}" wx:for="{{couponList}}" wx:key="{{item.id}}" data-value="{{item}}" bindtap="choose"
       class="item" />
@@ -190,7 +190,7 @@
     <scroll-view class="c" scroll-y="true">
       <view class="desc" wx:for="{{product.serviceList}}" wx:key="{{item.id}}">
         <view class="dt">
-          {{item.tilte}}
+          {{item.title}}
         </view>
         <view class="dc">
           {{item.desc}}
@@ -210,10 +210,10 @@
       <image class="img" src="{{product.picUrl}}" bindtap="previewThumb"></image>
       <view class="sku-desc">
         <van-tag wx:if="{{product.promotion==1}}" color="#f48f18" style="margin-bottom: 10rpx;">限时购</van-tag>
-        <view class="price">价格: ￥{{common.toFix(1)}}
+        <view class="price">价格: ￥{{common.toFix(product.price)}}
           <view class="origin-price">￥{{common.toFix(product.originPrice)}}</view>
         </view>
-        <view class="spec" wx:if="{{!sku.nonesku}}">{{sku.specTxt ? '已选择'+sku.specText:'请选择规格属性'}}</view>
+        <view class="spec" wx:if="{{!sku.noneSku}}">{{sku.specText ? '已选择'+sku.specText:'请选择规格属性'}}</view>
       </view>
     </view>
 
