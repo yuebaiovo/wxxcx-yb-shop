@@ -10,7 +10,7 @@ Page({
     address: {
       id: 1,
       isDefault: true,
-      name: 'Exrick',
+      name: 'YueBai',
       mobile: '17638344413',
       address: '河南省洛阳市洛龙区',
       street: '龙门大道太康路交叉口太康新苑'
