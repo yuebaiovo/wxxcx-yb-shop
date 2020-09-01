@@ -1,23 +1,18 @@
-// pages/pay-result/pay-result.js
+// pages/ucenter/coupon/coupon.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    status: 1,
-    point: 0
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.actualPrice){
-      this.setData({
-        point: options.actualPrice
-      })
-    }
+
   },
 
   /**
@@ -67,15 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  showOrder: function(){
-    wx.navigateTo({
-      url: '/pages/ucenter/order/order',
-    })
-  },
-  hangOut: function () {
-    wx.switchTab({
-      url: '/pages/index/index',
-    })
-  },
+  }
 })

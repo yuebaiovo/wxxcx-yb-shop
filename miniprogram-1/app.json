@@ -16,7 +16,16 @@
     "pages/pay-result/pay-result",
     "pages/promotion/promotion",
     "component/red/red",
-    "pages/ucenter/vip/vip"
+    "pages/ucenter/vip/vip",
+    "pages/ucenter/express/express",
+    "pages/ucenter/order/order",
+    "pages/ucenter/order-detail/order-detail",
+    "pages/ucenter/coupon/coupon",
+    "pages/ucenter/red/red",
+    "pages/ucenter/setting/setting",
+    "pages/ucenter/to-commet/to-commet",
+    "pages/ucenter/address/index/index",
+    "pages/ucenter/address/edit/edit"
   ],
   "window": {
     "navigationBarBackgroundColor": "#1d1d1d",
