@@ -1,2 +1,19 @@
 <!--pages/ucenter/order/order.wxml-->
-<text>pages/ucenter/order/order.wxml</text>
+<van-tabs color="#b4282d" active="{{actve}}" tab-class="tab" swipe-threshold="5" swipeable bind:change="changeTab" class="nav">
+  <van-tab title="全部"></van-tab>
+  <van-tab title="待付款"></van-tab>
+  <van-tab title="待发货"></van-tab>
+  <van-tab title="已发货"></van-tab>
+  <van-tab title="待评价"></van-tab>
+</van-tabs>
+
+<!-- 加载中 -->
+<view wx:if="{{loading}}" class="loading-center">
+  <van-loading type="spinner" />
+</view>
+
+<!-- 无订单 -->
+<view class="no-order" wx:if="{{orderList.length == 0&&!loading}}">
+  <image class="img" src="/assets/noOrder.png"></image>
+  <view class="txt">还没有任何订单呢</view>
+</view>

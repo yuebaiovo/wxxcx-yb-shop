@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "coupon": "/component/coupon/coupon"
+  }
 }
