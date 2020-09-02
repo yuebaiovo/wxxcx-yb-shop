@@ -1,5 +1,5 @@
 <!--pages/ucenter/order/order.wxml-->
-<van-tabs color="#b4282d" active="{{actve}}" tab-class="tab" swipe-threshold="5" swipeable bind:change="changeTab" class="nav">
+<van-tabs color="#b4282d" active="{{active}}" tab-class="tab" swipe-threshold="5" swipeable bind:change="changeTab" class="nav">
   <van-tab title="全部"></van-tab>
   <van-tab title="待付款"></van-tab>
   <van-tab title="待发货"></van-tab>
@@ -26,7 +26,7 @@
     <view class="header">
       <view class="order-id">订单编号:{{item.orderSn}}</view>
       <view wx:if="{{item.orderStatus==1||item.orderStatus==2||item.orderStatus==3}}" class="cancel" data-value="{{item}}" data-index="{{index}}" bindtap="cancelOrder">取消订单</view>
-      <image wx:if="{{item.orderStatus==0||item.orderStatus==4||item.orderStatus==5}}" class="delete" src="/assets/delete.png" data-value="{{item}}" bindtap="cancelOrder"></image>
+      <image wx:if="{{item.orderStatus==0||item.orderStatus==4||item.orderStatus==5}}" class="delete" src="/assets/delete.png" data-value="{{item}}" bindtap="deleteOrder"></image>
     </view>
 
     <view class="product" wx:for="{{item.productList}}" wx:key="{{product.id}}" wx:for-item="product" data-value="{{item}}" bindtap="toOrderDetail">
@@ -50,7 +50,7 @@
         <text wx:if="{{item.orderStatus==2||item.orderStatus==3}}">实付：￥{{item.actualPrice}}</text>
       </view>
       <view class="btns">
-        <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==1}}" COLOR="#b4282d" size="small" class="btn" bindtap="toPay">去付款</van-button>
+        <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==1}}" color="#b4282d" size="small" class="btn" bindtap="toPay">去付款</van-button>
         <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==3}}" plain type="default" size="small" class="btn" bindtap="toExpress">追踪物流</van-button>
         <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==3}}" plain type="default" size="small" class="btn" bindtap="confirmReceive">确认收货</van-button>
         <van-button data-value="{{item}}" data-index="{{index}}" wx:if="{{item.orderStatus==0||item.orderStatus==4||item.orderStatus==5}}" plain type="default" size="small" class="btn" bindtap="buyAgain">再次购买</van-button>

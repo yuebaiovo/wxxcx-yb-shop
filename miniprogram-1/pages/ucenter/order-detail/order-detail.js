@@ -1,18 +1,57 @@
 // pages/ucenter/order-detail/order-detail.js
+import Dialog from '../../../lib/vant-weapp/dialog/dialog';
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    address: {
+      id: 1,
+      isDefault: true,
+      name: 'YueBai',
+      mobile: '17638344413',
+      address: '河南省洛阳市洛龙区',
+      street: '龙门大道太康路交叉口太康新苑'
+    },
+    order: {
+      // id: '1',
+      // orderSn: '20180320',
+      // createTime: '2019-08-18 18:35',
+      // payType: '微信',
+      // productList: [{
+      //   id: '1',
+      //   picUrl: 'https://yanxuan.nosdn.127.net/1979054e3a1c8409f10191242165e674.png',
+      //   title: '常温纯牛奶 250毫升*12盒*2提',
+      //   specDesc: '纯牛奶 12盒*2提',
+      //   price: 88.00,
+      //   count: 1,
+      //   status: 1
+      // }, {
+      //   id: '3',
+      //   picUrl: 'https://yanxuan.nosdn.127.net/87eb525e1a7998b7a88f45a86b912e01.jpg',
+      //   title: '有道口袋打印机',
+      //   specDesc: '口袋打印机',
+      //   price: 398.00,
+      //   count: 1,
+      //   status: 5
+      // }],
+      // totalPrice: 586.00,
+      // expressPrice: 0.00,
+      // actualPrice: 586.00,
+      // orderStatus: 1
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '订单详情',
+    })
   },
 
   /**
@@ -26,7 +65,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let data=wx.getStorageSync("currOrder")
+    this.setData({
+      order:data
+    })
   },
 
   /**
@@ -62,5 +104,90 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  chooseAddress:function(){
+    if(this.data.order.orderStatus!=1){
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/ucenter/address/index/index?chooseMode=true&addressId='+this.data.address.id,
+    })
+  },
+  toCall:function(){
+    wx.makePhoneCall({
+      phoneNumber: '17638344413',
+    })
+  },
+  toPay:function(e){
+    let actualPrice=this.data.order.actualPrice
+    wx.showModal({
+      title:'提示',
+      content:'此处需调用微信支付接口',
+      showCancel:false,
+      confirmColor:'#b4282d',
+      success:function(res){
+        if(res.confirm){
+          wx.redirectTo({
+            url: '/pages/pay-result/pay-result?status=1&actual{}Price='+actualPrice,
+          })
+        }
+      }
+    })
+  },
+  toProduct:function(e){
+    let id=e.currentTarget.dataset.value.id
+    wx.navigateTo({
+      url:'/pages/product/product?id='+id
+    })
+  },
+  cancelOrder:function(){
+    Dialog.confirm({
+      message:'要取消此订单'
+    }).then(()=>{
+      this.setData({
+        'order.orderStatus':0
+      })
+    }).catch(()=>{
+
+    })
+  },
+  confirmReceive:function(e){
+    Dialog.confirm({
+      message:'确认收到货物?'
+    }).then(()=>{
+      let index=e.currentTarget.dataset.index
+      this.setData({
+        'order.orderStatus':4
+      }).catch(()=>{
+
+      })
+    })
+  },
+  toComment:function(v){
+    wx.navigateTo({
+      url: '/pages/ucenter/to-commet/to-commet'
+    })
+  },
+  toExpress:function(v){
+    wx.navigateTo({
+      url: '/pages/ucenter/express/express',
+    })
+  },
+  deleteOrder:function(){
+    Dialog.confirm({
+      message:'要删除此订单?'
+    }).then(()=>{
+      wx.navigateBack({
+        delta:1
+      })
+    }).catch(()=>{
+
+    })
+  },
+  buyAgain:function(e){
+    let index=e.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '/pages/product/product?id='+this.data.order.productList[index].id,
+    })
   }
 })

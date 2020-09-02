@@ -1,18 +1,23 @@
 // pages/ucenter/setting/setting.js
+import Toast from '../../../lib/vant-weapp/toast/toast';
+import Dialog from '../../../lib/vant-weapp/dialog/dialog';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    checked: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '设置',
+    })
   },
 
   /**
@@ -62,5 +67,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onChange: function (e) {
+    this.setData({
+      checked: e.detail
+    })
+  },
+  clearStorage: function () {
+    wx.clearStorage();
+    Toast("清理成功");
+  },
+  about: function(){
+    Dialog.alert({
+      title: '关于',
+      message: '版本号：1.0.0 By: YueBai'
+    }).then(() => {
+      // on close
+    });
   }
 })
