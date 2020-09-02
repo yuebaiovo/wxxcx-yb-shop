@@ -338,7 +338,7 @@ Page({
     let cartList = wx.getStorageSync("cartList")
     if (cartList) {
       this.setData({
-        cartList: cartList
+        cartList
       })
     }
     // 加载sku后初始化selectedSku
@@ -718,7 +718,7 @@ Page({
       })
       wx.setStorageSync('cartList', cartList)
       this.setData({
-        cartList: cartList
+        cartList
       })
       Toast("加入购物车成功")
     }
