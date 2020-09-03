@@ -4,6 +4,13 @@
 - [Wux Weapp](https://wux-weapp.github.io/wux-weapp-docs/#/)
 - [WxParse](https://github.com/icindy/wxParse)
 
+# 目录结构：
+- assets — 存放项目图片
+- pages — 存放项目页面相关文件
+- lib — 存放本地引入的第三方组件库
+- utils — 存放utils文件，可require引入
+- component — 存放复用组件
+
 # 功能清单：
 1.缩略图的方式显示商品列表（首页，分类文章），包括显示商品分类和商品价格，加载分页。
 
